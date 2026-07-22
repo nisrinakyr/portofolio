@@ -1,25 +1,47 @@
 ---
 import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+
+// Daftar kategori (Pastikan nama ini sama persis dengan yang kamu tulis di config.ts nanti)
+const categories = ["All", "Data & BI", "Business Analysis", "Product & Project Management"];
 ---
 
 {
   hasProjects && (
-    <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
+    <section 
+      id="projects" 
+      class="p-8 sm:p-12 md:p-16 lg:p-24"
+      style={`--accent-color: ${siteConfig.accentColor}`}
+    >
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
+          
+          {/* Bagian Kiri: Judul dan Filter Pills */}
+          <div class="lg:col-span-4 lg:sticky lg:top-24">
             <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
               Projects
             </h2>
             <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
+              class="w-[75px] h-[5px] mt-2 rounded-full mb-8"
+              style="background-color: var(--accent-color)"
             />
+            
+            {/* Filter Pills Container */}
+            <div class="flex flex-wrap gap-3">
+              {categories.map((cat) => (
+                <button
+                  class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900 data-[active=true]:bg-[var(--accent-color)] data-[active=true]:text-white data-[active=true]:shadow-md"
+                  data-category={cat}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
 
+          {/* Bagian Kanan: Daftar Card Project */}
           <div class="lg:col-span-8">
-            <div class="space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8" id="projects-container">
               {siteConfig.projects.map((project, index) => {
                 const Component = project.link ? "a" : "div";
                 const linkProps = project.link
@@ -31,7 +53,10 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                   : {};
 
                 return (
-                  <div class="group relative">
+                  <div 
+                    class="group relative project-card transition-all duration-500" 
+                    data-category={project.category || "Uncategorized"}
+                  >
                     <Component
                       {...linkProps}
                       class={`block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 ${
@@ -40,8 +65,21 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                           : ""
                       }`}
                     >
+                      {/* Render Gambar Preview jika ada */}
+                      {project.image && (
+                        <div class="mb-6 overflow-hidden rounded-xl border border-gray-200/60 bg-gray-100">
+                           <img 
+                             src={project.image} 
+                             alt={project.name} 
+                             class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.03]" 
+                             loading="lazy"
+                           />
+                        </div>
+                      )}
+
+                      {/* Ikon Panah (Muncul kalau ada link) */}
                       {project.link && (
-                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
+                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-[var(--accent-color)] z-10 shadow-sm">
                           <svg
                             class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                             fill="none"
@@ -58,18 +96,11 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                         </div>
                       )}
 
+                      {/* Detail Teks Project */}
                       <div class="space-y-4">
-                        <div>
-                          <span
-                            class="text-sm font-mono"
-                            style={{ color: siteConfig.accentColor }}
-                          >
-                            0{index + 1}
-                          </span>
-                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
-                            {project.name}
-                          </h3>
-                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
+                          {project.name}
+                        </h3>
 
                         <p
                           class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
@@ -102,3 +133,46 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
     </section>
   )
 }
+
+<script>
+  // Logika untuk fungsionalitas klik kategori
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+
+  // Set "All" sebagai kategori aktif secara default
+  const btnAll = document.querySelector('.filter-btn[data-category="All"]');
+  if (btnAll) btnAll.setAttribute('data-active', 'true');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Hapus status aktif dari semua tombol
+      buttons.forEach(btn => btn.setAttribute('data-active', 'false'));
+      
+      // Beri status aktif pada tombol yang sedang diklik
+      button.setAttribute('data-active', 'true');
+
+      const selectedCategory = button.getAttribute('data-category');
+
+      // Filter kartu project
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const element = card as HTMLElement;
+        
+        if (selectedCategory === 'All' || selectedCategory === cardCategory) {
+          element.style.display = 'block';
+          // Sedikit delay agar transisi opasitas terlihat mulus
+          setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          element.style.opacity = '0';
+          element.style.transform = 'translateY(10px)';
+          setTimeout(() => {
+            element.style.display = 'none';
+          }, 300); // Sesuaikan dengan durasi transisi
+        }
+      });
+    });
+  });
+</script>

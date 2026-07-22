@@ -1,38 +1,40 @@
 export const siteConfig = {
-  name: "Ryan Fitzgerald",
-  title: "Senior Software Engineer",
-  description: "Portfolio website of Ryan Fitzgerald",
-  accentColor: "#1d4ed8",
+  name: "Nisrina Kamiliya Riswanto",
+  title: "Information Systems Student",
+  description: "Portfolio website of Nisrina Kamiliya Riswanto",
+  accentColor: "#bf3853",
   social: {
-    email: "your-email@example.com",
-    linkedin: "https://linkedin.com/in/yourprofile",
-    twitter: "https://x.com/rfitzio",
-    github: "https://github.com/RyanFitzgerald",
+    email: "nisrin4kr@gmail.com",
+    linkedin: "https://linkedin.com/in/nisrinakamiliya/",
+    github: "https://github.com/nisrinakyr",
   },
   aboutMe:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quos asperiores nihil consequatur tempore cupiditate architecto natus commodi corrupti quas quasi facere est, dignissimos odit nam veniam sapiente ut, vitae eligendi ipsum dolor, nostrum ullam impedit! Corrupti ratione mollitia temporibus necessitatibus, consectetur reiciendis recusandae id, dolorum quaerat, vero pariatur. Ratione!",
-  skills: ["Javascript", "React", "Node.js", "Python", "AWS", "Docker"],
+    "I am an Information Systems undergraduate with interests in data analytics, business analysis, and digital product development. I enjoy combining data, technology, and business understanding to solve problems and improve decision-making. Through academic and personal projects, I have gained experience in business intelligence, data visualization, and business process improvement.",
+  skills: ["Python", "Excel", "Power BI", "SQL"],
   projects: [
     {
-      name: "AI Dev Roundup Newsletter",
-      description:
-        "One concise email. Five minutes. Every Tuesday. Essential AI news & trends, production-ready libraries, powerful AI tools, and real-world code examples",
-      link: "https://aidevroundup.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+      name: "HR Employee Analytics Dashboard",
+      description: "Built an HR Analytics Dashboard in Microsoft Excel using the IBM HR Employee Attrition dataset. The project covers data cleaning, validation, Pivot Table analysis, KPI reporting, and dashboard development to provide actionable HR insights.",
+      link: "https://drive.google.com/file/d/18sVP6-01yq1EgZ3tflor4qFUUnE5_Gy0/view?usp=drive_link",
+      skills: ["Microsoft Excel", "Data Cleaning", "Data Validation","Pivot Tables","Dashboard Development"],
+      category: "Data & BI", 
+      image: "/IBM HR Analytics Employee Attrition.jpeg" 
     },
     {
-      name: "Chrome Extension Mastery: Build Full-Stack Extensions with React & Node.js",
-      description:
-        "Master the art of building production-ready, full-stack Chrome Extensions using modern web technologies and best practices",
-      link: "https://fullstackextensions.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+      name: "Digital Sales & CRM Transformation for Frozen Food SME",
+      description: "Analyzed existing sales and customer management processes of an SME, identified CRM pain points, and designed a digital CRM solution integrating WhatsApp Business, Loyverse POS, and Make.com to centralize customer data, automate sales recording, and improve operational visibility.",
+      link: "https://drive.google.com/file/d/1DbH0If8XMfCiaoRAJBS6NnFoyhCOFVZb/view?usp=drive_link",
+      skills: ["CRM Analysis", "BPMN", "Requirements Gathering", "Stakeholder Interview", "Process Improvement"],
+      category: "Business Analysis",
+      image: "/CRM for SME Frozen Food.png"
     },
     {
-      name: "ExtensionKit",
-      description:
-        "Kit to jump-start your Chrome extension projects with a variety of battle-tested starter templates & examples",
-      link: "https://extensionkit.io/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+      name: "Agile Scrum Management App",
+      description: "Aplikasi internal untuk melacak sprint dan mengelola backlog tim developer.",
+      link: "https://github.com/nisrinakyr/project3",
+      skills: ["Jira", "Excel", "Product Management"],
+      category: "Product & Project Management",
+      image: "/preview-3.jpg"
     },
   ],
   experience: [
@@ -69,24 +71,32 @@ export const siteConfig = {
   ],
   education: [
     {
-      school: "University Name",
-      degree: "Bachelor of Science in Computer Science",
-      dateRange: "2014 - 2018",
-      achievements: [
-        "Graduated Magna Cum Laude with 3.8 GPA",
-        "Dean's List all semesters",
-        "President of Computer Science Club",
-      ],
-    },
-    {
-      school: "Online Platform",
-      degree: "Full Stack Development Certificate",
-      dateRange: "2019",
-      achievements: [
-        "Completed 500+ hours of coursework",
-        "Built 10+ portfolio projects",
-        "Specialized in React and Node.js",
-      ],
+      school: "Institut Teknologi Sepuluh Nopember",
+      degree: "Bachelor’s Degree in Information Systems",
+      dateRange: "2023 - 2027 (Expected)",
+     achievements: [
+     //   "Graduated Magna Cum Laude with 3.8 GPA",
+     //   "Dean's List all semesters",
+     //   "President of Computer Science Club",
+     ],
     },
   ],
-};
+
+  certificates: [
+    {
+      title: "Data Analytics Professional Certificate",
+      image: "/dummy-cert-1.jpg",
+      description: "Sertifikasi komprehensif mengenai pemrosesan data, visualisasi, dan analisis menggunakan tools industri terkini.",
+    },
+    {
+      title: "Business Intelligence Fundamental",
+      image: "/dummy-cert-2.jpg",
+      description: "Pemahaman mendalam tentang pemodelan data bisnis dan pembuatan dashboard interaktif untuk pengambilan keputusan.",
+    },
+    {
+      title: "Agile Project Management",
+      image: "/dummy-cert-3.jpg",
+      description: "Sertifikasi metodologi Agile dan framework Scrum untuk mengelola pengembangan produk digital secara efisien.",
+    },
+  ],
+}
