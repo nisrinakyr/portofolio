@@ -2,20 +2,20 @@
 import { siteConfig } from "../config";
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 ---
 
 <header
   id="header"
   class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  style={`--accent-color: ${siteConfig.accentColor}`}
 >
   <nav class="max-w-7xl mx-auto px-8 py-4">
     <ul class="flex items-center gap-8 justify-center">
       <li>
         <a
           href="#about"
-          class="text-gray-700 hover:text-black transition-colors font-medium"
+          class="nav-link text-gray-700 transition-colors duration-300 font-medium hover:text-gray-900 data-[active=true]:text-[var(--accent-color)]"
         >
           About
         </a>
@@ -25,21 +25,9 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           <li>
             <a
               href="#projects"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              class="nav-link text-gray-700 transition-colors duration-300 font-medium hover:text-gray-900 data-[active=true]:text-[var(--accent-color)]"
             >
               Projects
-            </a>
-          </li>
-        )
-      }
-      {
-        hasExperience && (
-          <li>
-            <a
-              href="#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Experience
             </a>
           </li>
         )
@@ -49,25 +37,64 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           <li>
             <a
               href="#education"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              class="nav-link text-gray-700 transition-colors duration-300 font-medium hover:text-gray-900 data-[active=true]:text-[var(--accent-color)]"
             >
               Education
             </a>
           </li>
         )
       }
+      <li>
+        <a
+          href="#certificate"
+          class="nav-link text-gray-700 transition-colors duration-300 font-medium hover:text-gray-900 data-[active=true]:text-[var(--accent-color)]"
+        >
+          Certificate
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
 
 <script>
+  // Ubah background header saat di-scroll biar ada efek blur tipis
   window.addEventListener("scroll", () => {
     const header = document.getElementById("header");
-    if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+    if (window.scrollY > 50) {
+      header?.classList.add("bg-white/90", "backdrop-blur-md", "shadow-sm");
     } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+      header?.classList.remove("bg-white/90", "backdrop-blur-md", "shadow-sm");
     }
+  });
+
+  // Logika untuk mendeteksi layarnya lagi di bagian mana (ScrollSpy)
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px', // Aktif ketika section nyampe di tengah atas layar
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach((link) => {
+          // Reset semua warna jadi abu-abu dulu
+          link.setAttribute('data-active', 'false');
+          // Kasih warna pink/aksen ke menu yang lagi dilihat
+          if (link.getAttribute('href') === `#${id}`) {
+            link.setAttribute('data-active', 'true');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  // Pantau ID dari tiap section yang ada di halaman utama
+  ['about', 'projects', 'education', 'certificate'].forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) observer.observe(element);
   });
 </script>
 
