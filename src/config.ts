@@ -17,7 +17,7 @@ export const siteConfig = {
       description: "Built an HR Analytics Dashboard in Microsoft Excel using the IBM HR Employee Attrition dataset. The project covers data cleaning, validation, Pivot Table analysis, KPI reporting, and dashboard development to provide actionable HR insights.",
       link: "https://drive.google.com/file/d/18sVP6-01yq1EgZ3tflor4qFUUnE5_Gy0/view?usp=drive_link",
       skills: ["Microsoft Excel", "Data Cleaning", "Data Validation","Pivot Tables","Dashboard Development"],
-      category: "Data & BI", 
+      category: "Data", 
       image: "/IBM HR Analytics Employee Attrition.jpeg" 
     },
     {
@@ -25,17 +25,33 @@ export const siteConfig = {
       description: "Analyzed existing sales and customer management processes of an SME, identified CRM pain points, and designed a digital CRM solution integrating WhatsApp Business, Loyverse POS, and Make.com to centralize customer data, automate sales recording, and improve operational visibility.",
       link: "https://drive.google.com/file/d/1DbH0If8XMfCiaoRAJBS6NnFoyhCOFVZb/view?usp=drive_link",
       skills: ["CRM Analysis", "BPMN", "Requirements Gathering", "Stakeholder Interview", "Process Improvement"],
-      category: "Business Analysis",
+      category: "Business",
       image: "/CRM for SME Frozen Food.png"
     },
     {
-      name: "Agile Scrum Management App",
-      description: "Aplikasi internal untuk melacak sprint dan mengelola backlog tim developer.",
-      link: "https://github.com/nisrinakyr/project3",
-      skills: ["Jira", "Excel", "Product Management"],
-      category: "Product & Project Management",
-      image: "/preview-3.jpg"
+      name: "Business Performance Analytics Dashboard",
+      description: "Developed an interactive Business Performance Dashboard using Power BI to monitor organizational KPIs based on the Balanced Scorecard framework. Performed data preparation, KPI development, and dashboard visualization to support performance evaluation and data-driven decision-making.",
+      link: "https://drive.google.com/file/d/1GmtiavFU1gcbwBv0XNpMkSjGXTWZ9ajC/view?usp=drive_link",
+      skills: ["Power BI", "DAX", "KPI Development", "Data Visualization", "Data Modeling"],
+      category: "Data",
+      image: "/Business Performance Analytics Dashboard.png"
     },
+    {
+      name: "Resource Scheduling Optimization",
+      description: "Developed a resource scheduling optimization model using Python and Google OR-Tools to automate laboratory class scheduling under multiple operational constraints. Applied optimization algorithms to generate feasible schedules and improve resource allocation efficiency.",
+      link: "https://drive.google.com/file/d/1gqtvXcdAauPUgkCrkC8eHtXDbYHBxosD/view?usp=drive_link",
+      skills: ["Python", "Google OR-Tools", "Optimization Modeling", "Decision Analytics"],
+      category: "Data",
+      image: "/Resource Scheduling Optimization.png"
+    },
+    {
+      name: "Medical Logistics Route Optimization System",
+      description: "Developed a medical logistics route optimization system using Python to optimize healthcare distribution under real-world operational constraints. Implemented optimization algorithms and interactive geospatial visualization to improve routing efficiency and support data-driven logistics planning.",
+      link: "https://drive.google.com/file/d/1nIYFKZzhig_4j7i_wBr5HrVvABDRg2vb/view?usp=drive_link",
+      skills: ["Python", "Pandas","Route Optimization"],
+      category: "Data",
+      image: "/Medical Logistics Route Optimization System.png"
+    }
   ],
   experience: [
     {
@@ -84,19 +100,10 @@ export const siteConfig = {
 
   certificates: [
     {
-      title: "Data Analytics Professional Certificate",
-      image: "/dummy-cert-1.jpg",
-      description: "Sertifikasi komprehensif mengenai pemrosesan data, visualisasi, dan analisis menggunakan tools industri terkini.",
-    },
-    {
-      title: "Business Intelligence Fundamental",
-      image: "/dummy-cert-2.jpg",
-      description: "Pemahaman mendalam tentang pemodelan data bisnis dan pembuatan dashboard interaktif untuk pengambilan keputusan.",
-    },
-    {
-      title: "Agile Project Management",
-      image: "/dummy-cert-3.jpg",
-      description: "Sertifikasi metodologi Agile dan framework Scrum untuk mengelola pengembangan produk digital secara efisien.",
+      title: "Introduction to SAP S/4HANA with GBI 4.2",
+      image: "/sertif SAP.png",
+      description: "Completed SAP S/4HANA foundational training with hands-on exposure to integrated business processes, including Sales & Distribution, Materials Management, and Production Planning within the GBI 4.2 simulation environment.",
+      link: "https://drive.google.com/file/d/1pi96i_RJXlOZcIdIVrupCJ8qPaBdAQnT/view?usp=sharing"
     },
   ],
 }

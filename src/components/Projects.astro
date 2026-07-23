@@ -3,22 +3,24 @@ import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 
 // Daftar kategori (Pastikan nama ini sama persis dengan yang kamu tulis di config.ts nanti)
-const categories = ["All", "Data & BI", "Business Analysis", "Product & Project Management"];
+const categories = ["All", "Data", "Business", "Product & Project Management"];
 ---
 
 {
   hasProjects && (
     <section 
       id="projects" 
-      class="p-8 sm:p-12 md:p-16 lg:p-24"
+      class="reveal p-8 sm:p-12 md:p-24"
       style={`--accent-color: ${siteConfig.accentColor}`}
     >
+
+  
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           
           {/* Bagian Kiri: Judul dan Filter Pills */}
           <div class="lg:col-span-4 lg:sticky lg:top-24">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 tracking-tight break-words">
               Projects
             </h2>
             <div

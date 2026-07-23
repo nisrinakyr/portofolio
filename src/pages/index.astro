@@ -13,7 +13,7 @@ import "../styles/global.css";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo-removebg.png"/>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={siteConfig.description} />
@@ -35,5 +35,31 @@ import "../styles/global.css";
       <Certificate />
     </section>
     <Footer />
+      <script>
+      // Fungsi untuk mendeteksi kapan elemen masuk ke layar
+      function scrollReveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            // Kalau elemen udah kelihatan di layar, tambahkan class 'active'
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              // Opsional: biar animasinya cuma jalan sekali (nggak ngulang pas scroll naik),
+              // observer.unobserve(entry.target); 
+            }
+          });
+        }, { 
+          threshold: 0.15 // Elemen mulai muncul saat 15% badannya udah masuk ke layar
+        });
+
+        reveals.forEach((reveal) => {
+          observer.observe(reveal);
+        });
+      }
+
+      // Jalankan mesinnya!
+      scrollReveal();
+    </script>
   </body>
 </html>

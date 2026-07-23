@@ -134,17 +134,18 @@ import { siteConfig } from "../config";
       <h2
         class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 animate-fade-in"
       >
-        Hello! ⋆.𐙚 ̊
+        Hello! 𐙚 · ⋆.
       </h2>
       <h1
         class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200"
       >
-        I'm <span style={{ color: siteConfig.accentColor }}
-          >{siteConfig.name}</span
-        >
+        <!-- Teks {siteConfig.name} dihapus dari sini supaya diisi lewat efek ngetik -->
+        I'm <span id="nama-ngetik" style={{ color: siteConfig.accentColor }}></span>
       </h1>
+      <!-- Ditambahkan id="jurusan-kedip" dan class opacity-0 untuk sembunyi di awal -->
       <p
-        class="mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 animate-fade-in animation-delay-400"
+        id="jurusan-kedip"
+        class="mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 opacity-0 transition-opacity duration-300"
       >
         {siteConfig.title}
       </p>
@@ -245,6 +246,28 @@ import { siteConfig } from "../config";
   </div>
 </div>
 
+<script define:vars={{ targetName: siteConfig.name }}>
+  // Logika efek ngetik dan kedip
+  const nameElement = document.getElementById("nama-ngetik");
+  const subtitleElement = document.getElementById("jurusan-kedip");
+  let index = 0;
+
+  function ketikTeks() {
+    if (nameElement && index < targetName.length) {
+      nameElement.innerHTML += targetName.charAt(index);
+      index++;
+      setTimeout(ketikTeks, 100); // 100 ini angka kecepatan ngetiknya
+    } else if (subtitleElement) {
+      // Kalau nama udah selesai diketik, munculkan jurusan dan kasih efek kedip
+      subtitleElement.classList.remove("opacity-0");
+      subtitleElement.classList.add("animasi-kedip");
+    }
+  }
+
+  // Tunggu sekitar 0.8 detik sebelum mulai ngetik, biar nggak terlalu buru-buru pas web baru kebuka
+  setTimeout(ketikTeks, 800);
+</script>
+
 <style>
   @keyframes fadeIn {
     from {
@@ -272,5 +295,14 @@ import { siteConfig } from "../config";
 
   .animation-delay-600 {
     animation-delay: 0.6s;
+  }
+
+  /* Ini tambahan efek kedipnya, diatur durasinya 1 detik */
+  .animasi-kedip {
+    animation: kedip 1s step-start infinite;
+  }
+
+  @keyframes kedip {
+    50% { opacity: 0; }
   }
 </style>
