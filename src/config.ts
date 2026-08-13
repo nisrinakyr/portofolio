@@ -51,6 +51,14 @@ export const siteConfig = {
       skills: ["Python", "Pandas","Route Optimization"],
       category: "Data",
       image: "/Medical Logistics Route Optimization System.png"
+    },
+    {
+      name: "BEQAS — UX Research & Design for a Second-Hand Marketplace",
+      description: "Designed a user-centered second-hand marketplace concept focused on creating a more personal and meaningful buying and selling experience. Conducted user research, developed user insights and HMW statements, designed user flows and low- to high-fidelity prototypes, and conducted usability testing to evaluate and refine the proposed solution.",
+      link: "https://drive.google.com/file/d/1Hu8gczokOa3iQv9rMmItyHNnIBljC7T_/view?usp=sharing",
+      skills: ["UX Research", "UI/UX Design", "Usability Testing","Figma"],
+      category: "Business", 
+      image: "/beqas.png" 
     }
   ],
   experience: [
