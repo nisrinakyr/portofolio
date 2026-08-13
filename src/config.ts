@@ -9,8 +9,8 @@ export const siteConfig = {
     github: "https://github.com/nisrinakyr",
   },
   aboutMe:
-    "I am an Information Systems undergraduate with interests in data analytics, business analysis, and digital product development. I enjoy combining data, technology, and business understanding to solve problems and improve decision-making. Through academic and personal projects, I have gained experience in business intelligence, data visualization, and business process improvement.",
-  skills: ["Python", "Excel", "Power BI", "SQL"],
+    "I am an Information Systems undergraduate interested in bridging business, technology, and data to solve problems and improve organizational processes. My interests span business analysis, process improvement, data analytics, and digital solutions. Through academic and personal projects, I have developed experience in analyzing business processes, translating business needs into solutions, monitoring performance, and applying data to support informed decision-making.",
+  skills: ["Business Analysis", "Data Analytics", "Business Process", "Power BI"],
   projects: [
     {
       name: "HR Employee Analytics Dashboard",
@@ -104,6 +104,12 @@ export const siteConfig = {
       image: "/sertif SAP.png",
       description: "Completed SAP S/4HANA foundational training with hands-on exposure to integrated business processes, including Sales & Distribution, Materials Management, and Production Planning within the GBI 4.2 simulation environment.",
       link: "https://drive.google.com/file/d/1pi96i_RJXlOZcIdIVrupCJ8qPaBdAQnT/view?usp=sharing"
+    },
+    {
+      title: "DevNet Associate — Cisco Networking Academy",
+      image: "/sertif devnet.png",
+      description: "Foundational training in Python, Linux, REST APIs, software development, testing, deployment, and cloud technologies.",
+      link: "https://drive.google.com/file/d/1WCtXCbw9OQ5nFwDDJm673oXYap5lnJk0/view?usp=sharing"
     },
   ],
 }
